@@ -9,6 +9,6 @@ public class fan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(fanspeed * Time.deltaTime, 0, 0);    
+        transform.Rotate(0, 0, fanspeed * Time.deltaTime);    
     }
 }

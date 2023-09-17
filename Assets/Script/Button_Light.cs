@@ -4,22 +4,29 @@ using UnityEngine;
 
 public class LightSwitch : MonoBehaviour
 {
-    public Light controlledLight; // Посилання на об'єкт світла
+    public GameObject[] lights; // Масив лампочок, які можна включати/вимикати.
+    private bool[] isLightOn; // Масив, щоб зберігати стан кожної лампочки.
+
+    private void Start()
+    {
+        // Ініціалізуємо масив станів лампочок.
+        isLightOn = new bool[lights.Length];
+
+        // Вимикаємо всі лампочки при запуску гри.
+        for (int i = 0; i < lights.Length; i++)
+        {
+            isLightOn[i] = false;
+            lights[i].SetActive(false);
+        }
+    }
 
     private void OnMouseDown()
     {
-        if (Input.GetMouseButtonDown(0)) // Перевірка на натискання лівої кнопки миші
+        // Змінюємо стан кожної лампочки при кожному кліку.
+        for (int i = 0; i < lights.Length; i++)
         {
-            ToggleLight();
-        }
-    }
-
-    private void ToggleLight()
-    {
-        if (controlledLight != null)
-        {
-            controlledLight.enabled = !controlledLight.enabled; // Вмикаємо/вимикаємо світло
+            isLightOn[i] = !isLightOn[i];
+            lights[i].SetActive(isLightOn[i]);
         }
     }
 }
-
