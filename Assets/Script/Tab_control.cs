@@ -8,10 +8,11 @@ public class Tab_control : MonoBehaviour
     public GameObject[] cameras;
     public GameObject mainCamera;
     private int currentCameraIndex = 0;
+    public Battery energy;
 
     public void tabChangeVisible()
     {
-        if (minimap.activeSelf)
+        if (minimap.activeSelf || energy.energy <=0)
         {
             Close();
         }
@@ -21,6 +22,12 @@ public class Tab_control : MonoBehaviour
         }
     }
     
+    private void Update(){
+        if(energy.energy <=0){
+            Close();
+        }
+    }
+
     void Open()
     {
         minimap.SetActive(true);
