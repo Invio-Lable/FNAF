@@ -7,7 +7,7 @@ public class Main_menu : MonoBehaviour
 {
   public void PlayGame ()
     {
-        SceneManager.LoadSceneAsync("restouran");
+        SceneManager.LoadSceneAsync("night");
     }
   public void Exit()
     {

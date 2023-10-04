@@ -21,7 +21,7 @@ public class Battery : MonoBehaviour
         InvokeRepeating("Discharging", 1f, 1f);
     }
 
-    private void Uptade(){
+    private void Update(){
         SetDischarge();
         ViewEnergy();
     }

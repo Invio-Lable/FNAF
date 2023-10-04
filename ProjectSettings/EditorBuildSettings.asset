@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/We.unity
+    guid: 1d245f4cc39e5e542b859edef42b1c7b
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 29c850919aee7a741a702499b59fae66
+  - enabled: 1
+    path: Assets/Scenes/night.unity
+    guid: f84a602208a451342a39ef15065d399a
+  - enabled: 1
     path: Assets/Scenes/restouran.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects: {}
