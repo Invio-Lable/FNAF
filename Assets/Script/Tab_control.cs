@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Tab_control : MonoBehaviour
 {
+    //public GameObject Tablet;
+    //public Animator anim;
     public GameObject minimap;
     public GameObject Image;
     public GameObject[] cameras;
@@ -16,8 +18,11 @@ public class Tab_control : MonoBehaviour
     public AudioClip TabClip;
     public AudioClip CameraClip;
     private AudioSource LaptopSound;
-    
 
+    //private void Awake()
+    //{
+      //  anim=Tablet.GetComponent<Animator>();
+   // }
     private void Start() {
         if (LaptopSound == null)
         {
@@ -45,15 +50,17 @@ public class Tab_control : MonoBehaviour
 
     void Open()
     {
-        
+       //   anim.SetBool("isOpen", true);
+       // yield return new WaitForSeconds(0.4f);
         LaptopSound.PlayOneShot(TabClip);
         Image.SetActive(true);
         minimap.SetActive(true);
         mainCamera.SetActive(false);
         cameras[currentCameraIndex].SetActive(true);
+        
     }
 
-    void Close()
+    public void Close()
     {
         Image.SetActive(false);
         LaptopSound.PlayOneShot(TabClip);
@@ -61,6 +68,7 @@ public class Tab_control : MonoBehaviour
         cameras[currentCameraIndex].SetActive(false);
         mainCamera.SetActive(true);
         minimap.SetActive(false);
+       // anim.SetBool("isOpen", false);
     }
 
     public void ChangeCamera(int index)

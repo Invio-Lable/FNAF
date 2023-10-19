@@ -6,13 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class clock : MonoBehaviour
 {
-    private int time = 0;
+   // private night_num night_num;
+    public int time = 0;
     private Text Clock;
     private void Awake()
     {
-
+        //night_num night_num = gameObject.GetComponent<night_num>();
         Clock = gameObject.GetComponent<Text>();
-        InvokeRepeating("Timer", 10f, 10f);  // записано в секундах  
+        InvokeRepeating("Timer", 90f, 90f);  // записано в секундах  
     }
 
     private void Timer()
@@ -24,8 +25,9 @@ public class clock : MonoBehaviour
         if (time >= 6)
         {
             CancelInvoke();     // Тут по факту має бути просто вигід з рівня та сцена перемоги і т.д
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("Win");
         }
     }
+    
 
 }

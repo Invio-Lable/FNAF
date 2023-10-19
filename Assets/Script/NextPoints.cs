@@ -3,36 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NextPoints : MonoBehaviour
-{   
+{
+    public Battery energy;
+    private Battery battery;
     int chance;
     public int id;
     public Transform[] NextCheckPoints;
-
+    public int toPlayerChance;
     public void Awake()
     {
         StartChance();
     }
     void StartChance()
     {
+        
         move.toPlayerChance = 75;
         chance = move.toPlayerChance;
-    }
-
-    void SetChance()
-    {
-        if (id == 1)
-        {
-            move.toPlayerChance = 100;
-        }
-        else if (id==8 | id == 6 )
-        {
-            move.toPlayerChance = 0;
-        }
+        moveChes.toPlayerChance = 100;
+        chance = moveChes.toPlayerChance;
     }
 
     public Transform getNext()
     {
-        //SetChance();
         chance = move.toPlayerChance;
         int  rand = Random.Range(1, 100);
         if (rand <= chance)

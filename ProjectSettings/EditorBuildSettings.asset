@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/night.unity
     guid: f84a602208a451342a39ef15065d399a
   - enabled: 1
+    path: Assets/Scenes/tr.unity
+    guid: ca127270d69e57c4abf17d88452629f8
+  - enabled: 1
     path: Assets/Scenes/restouran.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 83a081ef45e507440b1e6210614e4dfc
   m_configObjects: {}

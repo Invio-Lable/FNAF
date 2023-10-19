@@ -7,7 +7,7 @@ public class Battery : MonoBehaviour
 {
     public float energy = 100;
     public float discharge;
-
+    public static int toPlayerChance;
     public GameObject[] segment;
     public Tab_control tablet;
     public Door Door_Ventilation;
@@ -25,6 +25,11 @@ public class Battery : MonoBehaviour
     private void Update(){
         SetDischarge();
         ViewEnergy();
+        if(energy == 0)
+        {
+            move.toPlayerChance = 0;
+            moveChes.toPlayerChance = 100;
+        }
     }
 
     private void Discharging(){

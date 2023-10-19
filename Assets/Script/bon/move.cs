@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class move : MonoBehaviour
 {
+    public Battery energy;
     private NavMeshAgent agent;
     public Transform checkpoint;
     public Animator anim;
@@ -25,6 +26,7 @@ public class move : MonoBehaviour
     }
     public void Update()
     {
+       
         if (agent.velocity.x != 0 | agent.velocity.z != 0)
         {
             anim.SetBool("isMove", true);
