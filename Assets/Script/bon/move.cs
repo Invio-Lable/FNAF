@@ -10,19 +10,40 @@ public class move : MonoBehaviour
     public Transform checkpoint;
     public Animator anim;
     public static int toPlayerChance;
+    public Transform player; 
 
     private void Awake()
     {
+        
         agent = GetComponent<NavMeshAgent>();
         anim = agent.GetComponent<Animator>();
         Invoke("Move", 10f);    
     }
     void Move()
     {
-        NextPoints point= checkpoint.GetComponent<NextPoints>();
-        checkpoint = point.getNext();
-        agent.destination = checkpoint.position;
-        Invoke("Move", 5f);
+       NextPoints points = checkpoint.GetComponent<NextPoints>();
+       if(points is lastPoint)
+        {
+            lastPoint nearPoint = checkpoint.GetComponent<lastPoint>(); 
+            bool isOpen = nearPoint.isOpen;
+            if (isOpen)
+            {
+                agent.destination = player.position;
+                agent.speed = 6;
+            }
+            else
+            {
+                checkpoint = points.getNext();
+                agent.destination = checkpoint.position;
+                Invoke("Move", 5f);
+            }
+        }
+        else
+        {
+            checkpoint= points.getNext();
+            agent.destination = checkpoint.position;
+            Invoke("Move", 5f);
+        }
     }
     public void Update()
     {

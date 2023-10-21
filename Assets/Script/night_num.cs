@@ -6,24 +6,15 @@ using UnityEngine.UI;
 public class night_num : MonoBehaviour
 {
    // public clock clock;
-    public int nightNum = 1;
+    public int nightNum;
+    public GameObject textObject;
     private Text num;
-    private void Update()
-    {
-       //clock clock = gameObject.GetComponent<clock>();
-       //if (clock.time == 6){
-       //     nightNum++;
-       // }
-    }
-    private void Awake()
-    {
-        num = gameObject.GetComponent<Text>();
-        Timer();
-    }
 
-    private void Timer()
+    private void Start()
     {
-        num.text = nightNum.ToString();
+        nightNum = 0;
+        nightNum++;
+        num = textObject.GetComponent<Text>();
+        num.text = "Night " + nightNum;  
     }
-
 }

@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NextPoints : MonoBehaviour
-{
-    public Battery energy;
-    private Battery battery;
+{   
     int chance;
     public int id;
     public Transform[] NextCheckPoints;

@@ -1,4 +1,4 @@
-/*using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Attac : MonoBehaviour
 {
-    public GameObject screamer;
-    public GameObject tab;
+    public GameObject screamer;     
     public GameObject UI;
     Tab_control cameras;
     Animator anim;
@@ -23,7 +22,6 @@ public class Attac : MonoBehaviour
         {
             Invoke("end", 1f);
             cameras.Close();
-            Destroy(tab);
             Destroy(UI);
             gameObject.SetActive(false);
             screamer.SetActive(true);
@@ -35,4 +33,3 @@ public class Attac : MonoBehaviour
         SceneManager.LoadScene("Lose");
     }
 }
-*/

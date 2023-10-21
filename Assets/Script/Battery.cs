@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class Battery : MonoBehaviour
 {
     public float energy = 100;
@@ -25,11 +25,6 @@ public class Battery : MonoBehaviour
     private void Update(){
         SetDischarge();
         ViewEnergy();
-        if(energy == 0)
-        {
-            move.toPlayerChance = 0;
-            moveChes.toPlayerChance = 100;
-        }
     }
 
     private void Discharging(){
@@ -48,6 +43,9 @@ public class Battery : MonoBehaviour
         }
          if(energy < 0){
             segment[0].SetActive(false);
+            move.toPlayerChance = 0;
+            moveChes.toPlayerChance = 100;
+
         }
     }
 //розсіхд енергії

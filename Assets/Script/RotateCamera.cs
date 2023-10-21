@@ -9,13 +9,15 @@ public class RotateCamera : MonoBehaviour
     float rotateZone = Screen.width / 5;
     void Update()
     {
-        if (Input.mousePosition.x < rotateZone && transform.rotation.eulerAngles.y > 82)
-        {
-            transform.Rotate(0, -sens * Time.deltaTime, 0);
-        }
-        if(Input.mousePosition.x > Screen.width - rotateZone && transform.rotation.eulerAngles.y < 100)
-        {
-            transform.Rotate(0, sens * Time.deltaTime, 0);
-        }
+        if (screamer.activeSelf == false) {
+            if (Input.mousePosition.x < rotateZone && transform.rotation.eulerAngles.y > 82)
+            {
+                transform.Rotate(0, -sens * Time.deltaTime, 0);
+            }
+            if (Input.mousePosition.x > Screen.width - rotateZone && transform.rotation.eulerAngles.y < 100)
+            {
+                transform.Rotate(0, sens * Time.deltaTime, 0);
+            }
+        } 
     }
 }
