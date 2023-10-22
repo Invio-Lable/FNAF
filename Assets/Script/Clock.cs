@@ -2,25 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class Clock : MonoBehaviour
+public class clock : MonoBehaviour
 {
-    private int time = 0;
-    private Text clock;
-
-    private void Awake() {
-        clock = gameObject.GetComponent<Text>();
-        InvokeRepeating("Timer", 90f, 90f);  // Р·Р°РїРёСЃР°РЅРѕ РІ СЃРµРєСѓРЅРґР°С…  
+   // private night_num night_num;
+    public int time = 0;
+    private Text Clock;
+    private void Awake()
+    {
+        //night_num night_num = gameObject.GetComponent<night_num>();
+        Clock = gameObject.GetComponent<Text>();
+        InvokeRepeating("Timer", 90f, 90f);  // записано в секундах  
     }
 
-    private void Timer() {
+    private void Timer()
+    {
         time++;
 
-        clock.text = time.ToString() + " AM";
+        Clock.text = time.ToString() + " AM";
 
-        if (time >= 6) {
-            CancelInvoke();     // РўСѓС‚ РїРѕ С„Р°РєС‚Сѓ РјР°С” Р±СѓС‚Рё РїСЂРѕСЃС‚Рѕ РІРёРіС–Рґ Р· СЂС–РІРЅСЏ С‚Р° СЃС†РµРЅР° РїРµСЂРµРјРѕРіРё С– С‚.Рґ
-            Application.Quit();
+        if (time >= 6)
+        {
+            CancelInvoke();     // Тут по факту має бути просто вигід з рівня та сцена перемоги і т.д
+            SceneManager.LoadScene("Win");
         }
     }
+    
+
 }

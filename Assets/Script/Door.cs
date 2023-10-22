@@ -17,8 +17,10 @@ public class Door : MonoBehaviour
     {
         if (audioSource == null)
         {
-            audioSource = GetComponent<AudioSource>();
+            audioSource = gameObject.AddComponent<AudioSource>();
         }
+        
+        audioSource.clip = DoorOpenClip;
     }
     public void ButtonPressed()
     {
@@ -26,6 +28,9 @@ public class Door : MonoBehaviour
         {
             isOpen = !isOpen;
             action = true;
+
+            audioSource.clip = isOpen ? DoorOpenClip : DoorCloseClip;
+            audioSource.Play();
         }
     }
 
@@ -56,6 +61,13 @@ public class Door : MonoBehaviour
                 transform.localPosition = NextPosition;
                 action = false;
             }
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "enemy") {
+        action = true;
+        isOpen = true;
         }
     }
 }

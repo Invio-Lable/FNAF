@@ -34,13 +34,15 @@ public class Light : MonoBehaviour
 
     void OnMouseDown()
     {
-        audioSource.PlayOneShot(ButtonClip);
-        audioSource.PlayOneShot(LightClip);
-
-        if (doorLight != null)
+        if (energy.energy > 0)
         {
-            transform.localPosition = originalPosition - transform.up * buttonPressDepth;
-            doorLight.SetActive(true);
+            audioSource.PlayOneShot(ButtonClip);
+            audioSource.PlayOneShot(LightClip);
+
+            if (doorLight != null)
+            {
+                doorLight.SetActive(true);
+            }
         }
     }
 
@@ -48,7 +50,6 @@ public class Light : MonoBehaviour
     {
         if (doorLight != null)
         {
-            transform.localPosition = originalPosition;
             doorLight.SetActive(false);
         }
     }

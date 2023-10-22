@@ -21,7 +21,6 @@ public class fan : MonoBehaviour
     }
     void Update()
     {   
-        
         transform.Rotate(0, 0, fanspeed * Time.deltaTime);    
     }
 }

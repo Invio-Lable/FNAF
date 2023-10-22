@@ -41,7 +41,7 @@ public class DoorController : MonoBehaviour
 
         float startTime = Time.time;
         float journeyLength = Vector3.Distance(door.position, targetPosition);
-        float journeyTime = 1.0f; // Загальний час переміщення (в секундах)
+        float journeyTime = 0.5f; // Загальний час переміщення (в секундах)
 
         while (Time.time - startTime < journeyTime)
         {

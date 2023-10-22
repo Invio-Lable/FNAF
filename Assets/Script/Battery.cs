@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class Battery : MonoBehaviour
 {
     public float energy = 100;
     public float discharge;
-
+    public static int toPlayerChance;
     public GameObject[] segment;
     public Tab_control tablet;
     public Door Door_Ventilation;
@@ -18,8 +18,9 @@ public class Battery : MonoBehaviour
     public Light Point_Light_Right_Side;
 
     private void Awake(){
-        InvokeRepeating("Discharging", 1f, 1f);
+        InvokeRepeating("Discharging", 1f, 1f); 
     }
+
 
     private void Update(){
         SetDischarge();
@@ -42,6 +43,9 @@ public class Battery : MonoBehaviour
         }
          if(energy < 0){
             segment[0].SetActive(false);
+            move.toPlayerChance = 0;
+            moveChes.toPlayerChance = 100;
+
         }
     }
 //розсіхд енергії
@@ -51,35 +55,35 @@ public class Battery : MonoBehaviour
         float lightDC;
 // планшет
         if(tablet.minimap.activeSelf){
-            tableDC = 0.1f;
+            tableDC = 0.3f;
         }else{
             tableDC= 0f;
         }
-// зло їбучі двері з мат логікою на перевіс
+// зло *б*чі двері з мат логікою на перевіс
         if(Door_Central_Side.isOpen == false && Door_Right_Side.isOpen == false && Door_Ventilation.isOpen == false){
-            doorsDC = 0.3f;
+            doorsDC = 0.6f;
         }else if(Door_Central_Side.isOpen == true && Door_Right_Side.isOpen == false && Door_Ventilation.isOpen == false){
-            doorsDC = 0.2f;
+            doorsDC = 0.4f;
         }else if(Door_Central_Side.isOpen == true && Door_Right_Side.isOpen == true && Door_Ventilation.isOpen == false){
-            doorsDC = 0.1f;
+            doorsDC = 0.3f;
         }else if(Door_Central_Side.isOpen == false && Door_Right_Side.isOpen == true && Door_Ventilation.isOpen == true){
-            doorsDC = 0.1f;
+            doorsDC = 0.3f;
         }else if(Door_Central_Side.isOpen == true && Door_Right_Side.isOpen == false && Door_Ventilation.isOpen == true){
-            doorsDC = 0.1f;
+            doorsDC = 0.3f;
         }else if(Door_Central_Side.isOpen == false && Door_Right_Side.isOpen == true && Door_Ventilation.isOpen == false){
-            doorsDC = 0.2f;
+            doorsDC = 0.4f;
         }else if(Door_Central_Side.isOpen == false && Door_Right_Side.isOpen == false && Door_Ventilation.isOpen == true){
-            doorsDC = 0.2f;
+            doorsDC = 0.4f;
         }else{
             doorsDC = 0f;
         }
 
         if(Point_Light_Coridor.doorLight.activeSelf == true || Point_Light_Right_Side.doorLight.activeSelf == true || Point_Light_Ventilation.doorLight.activeSelf == true){
-            lightDC = 0.1f;
+            lightDC = 0.3f;
         }else{
             lightDC = 0f;
         }
 
-        discharge = 0.2f + tableDC +doorsDC + lightDC;
+        discharge = 0.4f + tableDC +doorsDC + lightDC;
     }
 }
