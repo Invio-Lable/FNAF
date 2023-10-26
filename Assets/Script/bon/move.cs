@@ -10,14 +10,15 @@ public class move : MonoBehaviour
     public Transform checkpoint;
     public Animator anim;
     public static int toPlayerChance;
-    public Transform player; 
+    public Transform player;
+    private float rNumber;
 
     private void Awake()
     {
-        
+        rNumber = Random.Range(10, 30);
         agent = GetComponent<NavMeshAgent>();
         anim = agent.GetComponent<Animator>();
-        Invoke("Move", 10f);    
+        Invoke("Move", rNumber);    
     }
     void Move()
     {
@@ -42,7 +43,7 @@ public class move : MonoBehaviour
         {
             checkpoint= points.getNext();
             agent.destination = checkpoint.position;
-            Invoke("Move", 5f);
+            Invoke("Move", rNumber);
         }
     }
     public void Update()

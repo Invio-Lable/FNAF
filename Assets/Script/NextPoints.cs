@@ -7,7 +7,7 @@ public class NextPoints : MonoBehaviour
     int chance;
     public int id;
     public Transform[] NextCheckPoints;
-    public int toPlayerChance;
+    private int toPlayerChance;
     public void Awake()
     {
         StartChance();

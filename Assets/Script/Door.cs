@@ -65,7 +65,7 @@ public class Door : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "enemy") {
+        if (other.tag == "Enemy") {
         action = true;
         isOpen = true;
         }

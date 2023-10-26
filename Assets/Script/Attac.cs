@@ -13,9 +13,6 @@ public class Attac : MonoBehaviour
     public AudioClip sound_of_screamer;
     private AudioSource audioSource;
 
-    private void Start() {
-        
-    }
     private void Awake()
     {
         anim = screamer.GetComponent<Animator>();

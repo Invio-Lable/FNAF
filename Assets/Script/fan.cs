@@ -16,7 +16,9 @@ public class fan : MonoBehaviour
     
         if (audioSource != null && audioSource.clip != null)
         {
-            audioSource.Play();
+            while(true){
+                audioSource.Play();
+            }
         }
     }
     void Update()

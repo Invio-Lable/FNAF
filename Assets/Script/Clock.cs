@@ -13,7 +13,7 @@ public class clock : MonoBehaviour
     {
         //night_num night_num = gameObject.GetComponent<night_num>();
         Clock = gameObject.GetComponent<Text>();
-        InvokeRepeating("Timer", 90f, 90f);  // записано в секундах  
+        InvokeRepeating("Timer", 50f, 50f);  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ  
     }
 
     private void Timer()
@@ -24,7 +24,7 @@ public class clock : MonoBehaviour
 
         if (time >= 6)
         {
-            CancelInvoke();     // Тут по факту має бути просто вигід з рівня та сцена перемоги і т.д
+            CancelInvoke();     // пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅ.пїЅ
             SceneManager.LoadScene("Win");
         }
     }
